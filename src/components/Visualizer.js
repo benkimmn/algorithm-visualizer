@@ -58,6 +58,19 @@ const Visualizer = () => {
                             barOneStyle.height = `${newHeightOne}px`;
                             barTwoStyle.height = `${newHeightTwo}px`;
                         }
+                    } else if (algorithm === 'bubbleSort') {
+                        const [barOneIdx, barTwoIdx, newHeightOne, newHeightTwo] = animation;
+                        // Skip "no-op" swaps
+                        if (barOneIdx === -1 && barTwoIdx === -1) return;
+                        const barOneStyle = arrayBars[barOneIdx].style;
+                        const barTwoStyle = arrayBars[barTwoIdx].style;
+                        const color = i % 3 !== 2 ? 'red' : 'turquoise';
+                        barOneStyle.backgroundColor = color;
+                        barTwoStyle.backgroundColor = color;
+                        if (barOneIdx !== -1 && barTwoIdx !== -1) {
+                            barOneStyle.height = `${newHeightOne}px`;
+                            barTwoStyle.height = `${newHeightTwo}px`;
+                        }
                     } else {
                         if (isColorChange) {
                             const [barOneIdx, barTwoIdx] = animation;
