@@ -1,6 +1,10 @@
 # algorithm-visualizer
 
-# A web-based tool to visualize and compare various sorting algorithms using React.
+## A web-based tool to visualize and compare various sorting algorithms using React.
+
+![Screenshot 2024-08-13 at 12-13-23 React App](https://github.com/user-attachments/assets/6a33a597-1504-4dae-8d09-aa5003b3dcb8)
+
+![sorting gif](https://github.com/user-attachments/assets/66907c93-6266-4b77-9a09-58bbce3154e1)
 
 ## Sorting Algorithms
 
