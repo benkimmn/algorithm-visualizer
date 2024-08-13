@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { quickSort } from '../algorithms/quickSort';
 import { mergeSort } from '../algorithms/mergeSort';
+import { bubbleSort } from '../algorithms/bubbleSort';
 import './Visualizer.css';
 
 const Visualizer = () => {
@@ -24,6 +25,7 @@ const Visualizer = () => {
     const getAnimations = (algo, array) => {
         if (algo === 'quickSort') return quickSort(array.slice());
         if (algo === 'mergeSort') return mergeSort(array.slice());
+        if (algo === 'bubbleSort') return bubbleSort(array.slice());
         return [];
     };
 
@@ -88,10 +90,12 @@ const Visualizer = () => {
                 <select onChange={(e) => setAlgorithm1(e.target.value)} value={algorithm1}>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
+                    <option value="bubbleSort">Bubble Sort</option> {/* Add this option */}
                 </select>
                 <select onChange={(e) => setAlgorithm2(e.target.value)} value={algorithm2}>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
+                    <option value="bubbleSort">Bubble Sort</option> {/* Add this option */}
                 </select>
                 <button onClick={resetArray}>Generate New Array</button>
                 <button onClick={animateSort}>Compare</button>
