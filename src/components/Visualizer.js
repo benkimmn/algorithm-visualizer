@@ -3,6 +3,7 @@ import { quickSort } from '../algorithms/quickSort';
 import { mergeSort } from '../algorithms/mergeSort';
 import { bubbleSort } from '../algorithms/bubbleSort';
 import { selectionSort } from '../algorithms/selectionSort';
+import { insertionSort } from '../algorithms/insertionSort';
 import './Visualizer.css';
 
 const Visualizer = () => {
@@ -28,6 +29,7 @@ const Visualizer = () => {
         if (algo === 'mergeSort') return mergeSort(array.slice());
         if (algo === 'bubbleSort') return bubbleSort(array.slice());
         if (algo === 'selectionSort') return selectionSort(array.slice());
+        if (algo === 'insertionSort') return insertionSort(array.slice());
         return [];
     };
 
@@ -86,6 +88,19 @@ const Visualizer = () => {
                             barOneStyle.height = `${newHeightOne}px`;
                             barTwoStyle.height = `${newHeightTwo}px`;
                         }
+                    } else if (algorithm === 'insertionSort') {
+                        const [barOneIdx, barTwoIdx, newHeightOne, newHeightTwo] = animation;
+                        // Skip "no-op" swaps
+                        if (barOneIdx === -1 && barTwoIdx === -1) return;
+                        const barOneStyle = arrayBars[barOneIdx].style;
+                        const barTwoStyle = arrayBars[barTwoIdx].style;
+                        const color = i % 3 !== 2 ? 'red' : 'turquoise';
+                        barOneStyle.backgroundColor = color;
+                        barTwoStyle.backgroundColor = color;
+                        if (newHeightOne !== -1 && newHeightTwo !== -1) {
+                            barOneStyle.height = `${newHeightOne}px`;
+                            barTwoStyle.height = `${newHeightTwo}px`;
+                        }
                     } else {
                         if (isColorChange) {
                             const [barOneIdx, barTwoIdx] = animation;
@@ -120,12 +135,14 @@ const Visualizer = () => {
                     <option value="mergeSort">Merge Sort</option>
                     <option value="bubbleSort">Bubble Sort</option>
                     <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
                 </select>
                 <select onChange={(e) => setAlgorithm2(e.target.value)} value={algorithm2}>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
                     <option value="bubbleSort">Bubble Sort</option>
                     <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
                 </select>
                 <button onClick={resetArray}>Generate New Array</button>
                 <button onClick={animateSort}>Compare</button>
