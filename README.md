@@ -1,7 +1,35 @@
-<<<<<<< HEAD
 # algorithm-visualizer
-A web-based tool to visualize and compare various sorting algorithms using React.
-=======
+
+# A web-based tool to visualize and compare various sorting algorithms using React.
+
+## Sorting Algorithms
+
+This visualizer includes the following sorting algorithms:
+
+### Bubble Sort
+
+Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+
+### Selection Sort
+
+Selection Sort is a simple sorting algorithm that improves upon bubble sort by making only one exchange for every pass through the list. It looks for the largest value as it makes a pass and, after completing the pass, places it in the proper location.
+
+### Insertion Sort
+
+Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+
+### Merge Sort
+
+Merge Sort is an efficient, stable sorting algorith that makes use of the divide and conquer strategy. Conceptually, a merge sort works as follows: Divide the unsorted list into n sublists, each containing one element and repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining.
+
+### Quick Sort
+
+Quick Sort is a divide and conquer algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.
+
+### Heap Sort
+
+Heap Sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end. We repeat the same process for the remaining elements.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,4 +100,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> b09822d (Initialize project using Create React App)
+
+> > > > > > > b09822d (Initialize project using Create React App)
