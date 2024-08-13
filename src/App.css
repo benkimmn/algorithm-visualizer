@@ -28,6 +28,36 @@
   color: #61dafb;
 }
 
+.array-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 500px;
+  margin: 20px;
+}
+
+.array-bar {
+  width: 10px;
+  margin: 0 2px;
+  background-color: turquoise;
+  transition: height 0.2s ease;
+}
+
+button {
+  font-size: 16px;
+  color: white; /* Ensure the text is visible */
+  background-color: #333; /* Add a background color for the button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: #555; /* Slightly darker background on hover */
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
