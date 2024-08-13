@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { quickSort } from '../algorithms/quickSort';
 import { mergeSort } from '../algorithms/mergeSort';
 import { bubbleSort } from '../algorithms/bubbleSort';
+import { selectionSort } from '../algorithms/selectionSort';
 import './Visualizer.css';
 
 const Visualizer = () => {
@@ -26,6 +27,7 @@ const Visualizer = () => {
         if (algo === 'quickSort') return quickSort(array.slice());
         if (algo === 'mergeSort') return mergeSort(array.slice());
         if (algo === 'bubbleSort') return bubbleSort(array.slice());
+        if (algo === 'selectionSort') return selectionSort(array.slice());
         return [];
     };
 
@@ -71,6 +73,19 @@ const Visualizer = () => {
                             barOneStyle.height = `${newHeightOne}px`;
                             barTwoStyle.height = `${newHeightTwo}px`;
                         }
+                    } else if (algorithm === 'selectionSort') {
+                        const [barOneIdx, barTwoIdx, newHeightOne, newHeightTwo] = animation;
+                        // Skip "no-op" swaps
+                        if (barOneIdx === -1 && barTwoIdx === -1) return;
+                        const barOneStyle = arrayBars[barOneIdx].style;
+                        const barTwoStyle = arrayBars[barTwoIdx].style;
+                        const color = i % 3 !== 2 ? 'red' : 'turquoise';
+                        barOneStyle.backgroundColor = color;
+                        barTwoStyle.backgroundColor = color;
+                        if (newHeightOne !== -1 && newHeightTwo !== -1) {
+                            barOneStyle.height = `${newHeightOne}px`;
+                            barTwoStyle.height = `${newHeightTwo}px`;
+                        }
                     } else {
                         if (isColorChange) {
                             const [barOneIdx, barTwoIdx] = animation;
@@ -85,12 +100,12 @@ const Visualizer = () => {
                             barOneStyle.height = `${newHeight}px`;
                         }
                     }
-                    // If it's the last animation, log the time it took
-                    if (i === animations.length - 1) {
-                        clearInterval(timerInterval);
-                    }
                 }, i * 10);
             });
+            // Stop the timer after the last animation has been processed
+            setTimeout(() => {
+                clearInterval(timerInterval);
+            }, animations.length * 10);
         };
     
         animate(animations1, 'array-bar-1', algorithm1, setTime1);
@@ -103,12 +118,14 @@ const Visualizer = () => {
                 <select onChange={(e) => setAlgorithm1(e.target.value)} value={algorithm1}>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
-                    <option value="bubbleSort">Bubble Sort</option> {/* Add this option */}
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
                 </select>
                 <select onChange={(e) => setAlgorithm2(e.target.value)} value={algorithm2}>
                     <option value="quickSort">Quick Sort</option>
                     <option value="mergeSort">Merge Sort</option>
-                    <option value="bubbleSort">Bubble Sort</option> {/* Add this option */}
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
                 </select>
                 <button onClick={resetArray}>Generate New Array</button>
                 <button onClick={animateSort}>Compare</button>
